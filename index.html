@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1769e8">
+<title>HỆ THỐNG TN TRƯỜNG THPT LÊ DUẨN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#1769e8;--blue2:#49a1ff;--navy:#102a56;--cyan:#dff2ff;--ink:#183153;--muted:#6e829f;--line:#e4edf8;--white:#fff;--bg:#f3f8ff;--green:#12a878;--red:#e34d67;--shadow:0 18px 50px #1c5db51c}
+*{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0%,#dceeff 0,transparent 30%),radial-gradient(circle at 95% 10%,#e4eaff 0,transparent 27%),linear-gradient(145deg,#f7fbff,#edf5ff);min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}.app{max-width:1250px;margin:auto;padding:22px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#fff,#d7eaff);box-shadow:8px 8px 18px #9bbce64d,-6px -6px 15px #fff;display:grid;place-items:center;font-size:25px}.brand b{font-size:18px;letter-spacing:.4px;color:var(--navy)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.6px;font-weight:800}.top-actions{display:flex;gap:9px;align-items:center}.pill{padding:9px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:#58708f}
+.btn{padding:13px 18px;border-radius:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--blue),#459bff);box-shadow:0 9px 20px #1769e83b;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-2px);box-shadow:0 13px 25px #1769e84a}.btn.secondary{background:#fff;color:var(--blue);border:1px solid #cfe2ff;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#d93d5b,#ff7183)}.btn.success{background:linear-gradient(135deg,#079b73,#32c89a)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:stretch}.panel{background:#ffffffd9;border:1px solid #fff;border-radius:26px;box-shadow:var(--shadow);backdrop-filter:blur(14px);padding:28px;position:relative;overflow:hidden}.hero-main{min-height:460px;display:flex;flex-direction:column;justify-content:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:1.6px;background:#eaf4ff;padding:8px 12px;border-radius:999px;width:max-content}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.12;margin:20px 0 14px;color:var(--navy);letter-spacing:-2px}.hero h1 span{color:var(--blue)}.lead{color:var(--muted);line-height:1.8;font-size:14px;max-width:550px}.feature-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.feature{background:#f5f9ff;border:1px solid #e4efff;padding:10px 12px;border-radius:13px;font-size:11px;font-weight:700;color:#526c8f}.hero-art{min-height:420px;display:grid;place-items:center;background:linear-gradient(145deg,#e7f3ff,#cfe5ff);border-radius:24px;position:relative;overflow:hidden}.orb{position:absolute;border-radius:50%;filter:blur(1px);animation:float 6s ease-in-out infinite}.orb.one{width:220px;height:220px;background:linear-gradient(145deg,#fff,#a8d3ff);top:30px;right:15px;box-shadow:20px 20px 50px #5c9ce455}.orb.two{width:130px;height:130px;background:linear-gradient(145deg,#fff,#b4caff);bottom:35px;left:25px;animation-delay:-2s}.trophy{z-index:1;width:210px;height:240px;border-radius:35px;background:linear-gradient(145deg,#fff,#d9ebff);box-shadow:18px 22px 35px #477ab344,-10px -10px 24px #fff;display:grid;place-items:center;font-size:100px;transform:rotate(-5deg);animation:float 5s ease-in-out infinite}.float-tag{position:absolute;z-index:2;background:#fff;padding:12px 16px;border-radius:15px;box-shadow:var(--shadow);font-weight:800;font-size:12px}.tag-a{top:55px;left:25px}.tag-b{right:20px;bottom:58px}@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-13px) rotate(-2deg)}}
+.form-card{max-width:540px;margin:24px auto}.form-card h2{margin:0 0 6px;color:var(--navy);font-size:25px}.sub{font-size:12px;color:var(--muted);line-height:1.7}.field{margin:17px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:8px;color:#506987}.field input,.field select{width:100%;border:1px solid #dce8f7;background:#f8fbff;border-radius:13px;padding:14px 15px;outline:none;color:var(--ink)}.field input:focus,.field select:focus{border-color:#68a9ff;box-shadow:0 0 0 4px #dcecff}.full{width:100%}.notice{padding:13px 15px;border-radius:13px;background:#eff7ff;color:#537399;font-size:11px;line-height:1.7;margin-top:15px}.status-card{text-align:center;padding:45px 24px}.status-icon{font-size:54px;margin-bottom:10px}.status-card h2{color:var(--navy)}.spinner{width:26px;height:26px;border:3px solid #d9eaff;border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
+.admin-layout{display:grid;grid-template-columns:235px 1fr;gap:18px}.sidebar{background:linear-gradient(160deg,#123b78,#1769e8);color:#fff;border-radius:23px;padding:22px;min-height:650px;box-shadow:var(--shadow)}.sidebar h3{font-size:15px}.side-link{display:block;width:100%;text-align:left;color:#dceaff;background:transparent;padding:12px;border-radius:12px;margin:7px 0;font-weight:700;font-size:12px}.side-link.active,.side-link:hover{background:#ffffff24;color:#fff}.admin-main{min-width:0}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.admin-head h2{margin:0;color:var(--navy)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat{padding:17px;border-radius:18px;background:#fff;box-shadow:var(--shadow);border:1px solid #fff}.stat small{color:var(--muted);font-weight:700}.stat strong{display:block;font-size:27px;color:var(--navy);margin-top:7px}.table-wrap{overflow:auto;background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid #fff}.table{width:100%;border-collapse:collapse;min-width:720px}.table th,.table td{padding:13px 14px;text-align:left;border-bottom:1px solid #edf2f9;font-size:11px}.table th{background:#f5f9ff;color:#647d9d}.tag{font-size:10px;padding:6px 9px;border-radius:99px;font-weight:800;background:#edf4ff;color:#3675c9}.tag.wait{background:#fff4dc;color:#a56a00}.tag.ok{background:#e2f8ef;color:#07855e}.tag.bad{background:#ffebef;color:#ce3c57}
+.exam-shell{max-width:1050px;margin:auto}.exam-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.student-chip,.timer{background:#fff;border:1px solid #e4eefb;border-radius:15px;padding:11px 15px;box-shadow:0 8px 20px #1b5a9d10;font-size:12px;font-weight:800}.timer{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums}.timer.urgent{color:var(--red);animation:pulse .8s infinite}@keyframes pulse{50%{opacity:.55}}.progress{height:8px;background:#e1edfc;border-radius:99px;overflow:hidden;margin:15px 0 22px}.progress>div{height:100%;background:linear-gradient(90deg,#1769e8,#55b5ff);width:0;transition:.3s}.question-card{padding:30px;min-height:350px}.q-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:800}.question-card h2{font-size:clamp(19px,3vw,27px);line-height:1.5;color:var(--navy);margin:24px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:13px}.answer{padding:17px;border:1px solid #dce9fa;background:linear-gradient(145deg,#fff,#f5f9ff);border-radius:16px;text-align:left;color:#35516f;font-weight:700;min-height:65px;box-shadow:5px 6px 14px #b9cce522;transition:.15s}.answer:hover{border-color:#77b5ff;transform:translateY(-2px)}.answer.selected{background:#e5f2ff;border:2px solid var(--blue);color:#1458b5}.answer .letter{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:9px;background:#e7f1ff;color:var(--blue);margin-right:9px}.exam-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}.result{text-align:center;padding:40px 20px}.score{font-size:66px;font-weight:900;color:var(--blue);line-height:1}.result-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:20px}.result-item{background:#f4f8ff;padding:13px 18px;border-radius:13px;font-size:12px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:100;background:#17365f;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;max-width:90vw}.modal-bg{position:fixed;inset:0;background:#102a5677;display:grid;place-items:center;z-index:50;padding:18px}.modal{background:#fff;border-radius:22px;padding:25px;max-width:460px;width:100%;box-shadow:0 30px 80px #061a3c66}.modal h3{margin-top:0;color:var(--navy)}.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:300px}.admin-layout{grid-template-columns:1fr}.sidebar{min-height:auto}.stats{grid-template-columns:repeat(2,1fr)}.side-link{display:inline-block;width:auto}.app{padding:14px}.panel{padding:20px}}
+@media(max-width:560px){.topbar{align-items:flex-start}.brand b{font-size:14px}.top-actions .pill{display:none}.hero h1{letter-spacing:-1px}.answers{grid-template-columns:1fr}.question-card{padding:20px}.exam-top{align-items:stretch;flex-direction:column}.timer{text-align:center}.exam-bottom{flex-wrap:wrap}.exam-bottom .btn{flex:1}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:22px}.config-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo">🎓</div><div><b>TRƯỜNG THPT LÊ DUẨN - TÂY NINH</b><small>ONLINE KNOWLEDGE CHALLENGE</small></div></div>
+    <div class="top-actions"><span class="pill">🔒 Phòng thi có kiểm soát</span><button class="btn secondary" id="adminOpen">⚙ ADMIN</button></div>
+  </header>
+
+  <section id="homeView">
+    <div class="hero">
+      <div class="panel hero-main">
+        <span class="eyebrow">✦ SÂN CHƠI TRI THỨC TRỰC TUYẾN - THẦY THIỆN DESIGN</span>
+        <h1>Chinh phục<br><span>đỉnh cao tri thức.</span></h1>
+        <p class="lead">Một đấu trường kiểm tra trực tuyến hiện đại. Đăng ký bằng họ tên và lớp, chờ giáo viên xác nhận để bước vào thử thách.</p>
+        <div class="feature-row"><span class="feature">⏱ Đồng hồ thời gian thực</span><span class="feature">🎯 Câu hỏi ngẫu nhiên</span><span class="feature">🏆 Chấm điểm tự động</span><span class="feature">🛡 Giám sát phòng thi</span></div>
+      </div>
+      <div class="hero-art"><div class="orb one"></div><div class="orb two"></div><div class="trophy">🏆</div><div class="float-tag tag-a">⭐ Sẵn sàng thử thách?</div><div class="float-tag tag-b">📚 Học tập • Bứt phá</div></div>
+    </div>
+    <div class="panel form-card">
+      <h2>🎮 Tham gia phòng thi</h2><p class="sub">Nhập chính xác thông tin để giáo viên nhận diện và duyệt vào thi.</p>
+      <form id="joinForm">
+        <div class="field"><label>HỌ VÀ TÊN HỌC SINH</label><input id="studentName" maxlength="80" required placeholder="Ví dụ: Nguyễn Văn An"></div>
+        <div class="field"><label>LỚP</label><input id="studentClass" maxlength="20" required placeholder="Ví dụ: 10A4"></div>
+        <button class="btn full" type="submit">GỬI YÊU CẦU VÀO PHÒNG THI　➜</button>
+      </form>
+      <div class="notice">📌 Sau khi gửi yêu cầu, vui lòng giữ trang này mở và chờ giáo viên duyệt. Thời gian làm bài chỉ bắt đầu khi được duyệt.</div>
+    </div>
+  </section>
+
+  <section id="waitingView" class="panel form-card status-card hidden">
+    <div class="status-icon">🛎️</div><span class="eyebrow">YÊU CẦU ĐÃ GỬI</span><h2>Đang chờ giáo viên xác nhận</h2>
+    <p class="sub" id="waitingInfo"></p><div class="spinner"></div><p class="sub">Giữ nguyên trang này. Đồng hồ chưa bắt đầu tính.</p>
+    <button class="btn secondary" id="cancelWait">Hủy yêu cầu</button>
+  </section>
+
+  <section id="examView" class="hidden exam-shell">
+    <div class="exam-top"><div class="student-chip">👤 <span id="examStudent"></span></div><div class="student-chip">📘 <span id="examClass"></span></div><div class="timer" id="timer">00:00</div></div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div class="panel question-card">
+      <div class="q-meta"><span id="questionCount">CÂU 1 / 20</span><span>⚡ TRI THỨC ARENA</span></div>
+      <h2 id="questionText">Đang tải câu hỏi...</h2>
+      <div class="answers" id="answers"></div>
+    </div>
+    <div class="exam-bottom"><span class="sub" id="answeredText">Đã trả lời 0 câu</span><button class="btn" id="nextBtn" disabled>CÂU TIẾP THEO　➜</button></div>
+    <div class="notice">🛡 Không chuyển tab hoặc rời màn hình thi. Hành vi vi phạm có thể khiến bài thi bị khóa và nhận 0 điểm theo quy định của giáo viên.</div>
+  </section>
+
+  <section id="resultView" class="panel form-card result hidden">
+    <div class="status-icon" id="resultIcon">🏆</div><span class="eyebrow">KẾT QUẢ BÀI THI</span><h2 id="resultTitle">Hoàn thành!</h2>
+    <div class="score" id="resultScore">0</div><p class="sub">ĐIỂM SỐ</p>
+    <div class="result-grid" id="resultDetails"></div><p class="sub" id="resultMessage"></p>
+    <button class="btn secondary" onclick="location.reload()">VỀ TRANG CHỦ</button>
+  </section>
+
+  <section id="adminLoginView" class="panel form-card hidden">
+    <h2>🔐 Đăng nhập giáo viên</h2><p class="sub">Khu vực quản trị được bảo vệ bằng mật khẩu ADMIN.</p>
+    <form id="adminLoginForm"><div class="field"><label>MẬT KHẨU ADMIN</label><input type="password" id="adminPassword" required autocomplete="current-password" placeholder="Nhập mật khẩu quản trị"></div><button class="btn full">ĐĂNG NHẬP QUẢN TRỊ</button></form>
+    <button class="btn secondary full" id="backHome" style="margin-top:10px">Quay lại</button>
+  </section>
+
+  <section id="adminView" class="admin-layout hidden">
+    <aside class="sidebar"><div style="font-size:28px">🎓</div><h3>TRI THỨC ARENA</h3><p style="font-size:10px;color:#c4dcff">BẢNG ĐIỀU KHIỂN GIÁO VIÊN</p>
+      <button class="side-link active" data-tab="monitor">📡 Giám sát phòng thi</button>
+      <button class="side-link" data-tab="settings">⚙ Cấu hình bài thi</button>
+      <button class="side-link" data-tab="results">🏆 Kết quả đã lưu</button>
+      <button class="side-link" id="adminLogout">↪ Đăng xuất</button>
+    </aside>
+    <div class="admin-main">
+      <div class="admin-head"><div><h2 id="adminTitle">Giám sát phòng thi</h2><p class="sub">Theo dõi trạng thái học sinh và xử lý trực tiếp.</p></div><button class="btn secondary" id="refreshAdmin">↻ Làm mới</button></div>
+      <div id="monitorTab">
+        <div class="stats"><div class="stat"><small>👥 Tổng yêu cầu</small><strong id="sTotal">0</strong></div><div class="stat"><small>⏳ Chờ duyệt</small><strong id="sWait">0</strong></div><div class="stat"><small>✍ Đang thi</small><strong id="sLive">0</strong></div><div class="stat"><small>🚫 Đã bị loại</small><strong id="sOut">0</strong></div></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>HỌC SINH</th><th>LỚP</th><th>TRẠNG THÁI</th><th>TIẾN ĐỘ</th><th>THỜI GIAN CÒN</th><th>GHI CHÚ</th><th>THAO TÁC</th></tr></thead><tbody id="studentsTable"><tr><td colspan="6">Chưa có dữ liệu.</td></tr></tbody></table></div>
+      </div>
+      <div id="settingsTab" class="panel hidden">
+        <h3>⚙ Thiết lập phòng thi</h3><p class="sub">Các thiết lập được áp dụng cho học sinh được duyệt tiếp theo.</p>
+        <div class="config-grid"><div class="field"><label>SỐ CÂU HỎI</label><input type="number" min="1" max="100" id="cfgCount"></div><div class="field"><label>THỜI GIAN (PHÚT)</label><input type="number" min="1" max="180" id="cfgMinutes"></div><div class="field"><label>ĐIỂM MỖI CÂU</label><input type="number" min="0.1" max="10" step="0.1" id="cfgPoint"></div><div class="field"><label>CHẾ ĐỘ LOẠI KHI SAI</label><select id="cfgWrong"><option value="true">Có – sai là loại, 0 điểm</option><option value="false">Không – tiếp tục làm bài</option></select></div></div>
+        <div class="field"><label>QUY ĐỊNH RỜI MÀN HÌNH</label><select id="cfgViolation"><option value="true">Có – phát hiện vi phạm và loại, 0 điểm</option><option value="false">Không – chỉ ghi nhận cảnh báo</option></select></div>
+        <button class="btn" id="saveSettings">💾 LƯU CẤU HÌNH</button>
+        <div class="notice">Ngân hàng câu hỏi được quản lý trong tab QUESTIONS của Google Sheets. Hệ thống lấy câu hỏi ngẫu nhiên và ưu tiên tránh trùng giữa các bài thi đang hoạt động.</div>
+      </div>
+      <div id="resultsTab" class="hidden"><div class="table-wrap"><table class="table"><thead><tr><th>HỌC SINH</th><th>LỚP</th><th>ĐIỂM</th><th>ĐÚNG</th><th>TỔNG CÂU</th><th>KẾT THÚC</th><th>LÝ DO</th></tr></thead><tbody id="resultsTable"></tbody></table></div></div>
+    </div>
+  </section>
+</div>
+<div id="toast" class="toast hidden"></div>
+<div id="confirmModal" class="modal-bg hidden"><div class="modal"><h3>⚠ Xác nhận nộp bài</h3><p class="sub">Bạn có chắc chắn muốn kết thúc bài thi ngay bây giờ?</p><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px"><button class="btn secondary" id="keepDoing">Tiếp tục làm</button><button class="btn" id="confirmSubmit">Nộp bài</button></div></div></div>
+<script>
+/* CẤU HÌNH: dán URL Web App Google Apps Script sau khi triển khai */
+const API_URL = "https://script.google.com/macros/s/AKfycbxzRkwU78Y1YsJkOE7K7RNWK-pgD9c4bLHH1iFYfY45N2KpieOA99jUvsaCg9tu4mO6ZQ/exec";
+const $ = id => document.getElementById(id);
+let studentToken=null, adminToken=null, sessionId=null, exam=null, current=0, selected=null, timerHandle=null, pollHandle=null, endAt=0, lastVisibility=0, violationSent=false;
+const screens=["homeView","waitingView","examView","resultView","adminLoginView","adminView"];
+function show(id){screens.forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),3200)}
+function jsonp(action,data={}){return new Promise((resolve,reject)=>{if(!API_URL.startsWith("https://script.google.com/"))return reject(new Error("Chưa cấu hình URL Google Apps Script trong index.html"));const cb="__cb"+Math.random().toString(36).slice(2);const script=document.createElement("script");const timeout=setTimeout(()=>{cleanup();reject(new Error("Máy chủ phản hồi quá lâu. Vui lòng thử lại."))},15000);function cleanup(){clearTimeout(timeout);delete window[cb];script.remove()}window[cb]=res=>{cleanup();res&&res.ok?resolve(res):reject(new Error(res?.error||"Có lỗi xảy ra"))};const payload=encodeURIComponent(JSON.stringify(data));script.src=API_URL+"?action="+encodeURIComponent(action)+"&payload="+payload+"&callback="+cb;script.onerror=()=>{cleanup();reject(new Error("Không kết nối được máy chủ"))};document.body.appendChild(script)})}
+function safe(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("joinForm").addEventListener("submit",async e=>{e.preventDefault();const name=$("studentName").value.trim(),cls=$("studentClass").value.trim();if(!name||!cls)return;try{const r=await jsonp("register",{name,cls});studentToken=r.token;sessionId=r.sessionId;$("waitingInfo").textContent=name+" • Lớp "+cls+" • Mã dự thi "+sessionId;show("waitingView");startStudentPoll()}catch(err){toast(err.message)}});
+function startStudentPoll(){clearInterval(pollHandle);pollHandle=setInterval(async()=>{if(!studentToken)return;try{const r=await jsonp("studentStatus",{token:studentToken});if(r.status==="APPROVED"){clearInterval(pollHandle);exam=r.exam;startExam()}else if(r.status==="REJECTED"||r.status==="ELIMINATED"||r.status==="FINISHED"){clearInterval(pollHandle);showResult(r.result||{score:0,reason:r.status})}}catch(e){/* transient polling errors do not auto-eliminate */}},2500)}
+$("cancelWait").onclick=async()=>{try{await jsonp("cancel",{token:studentToken});studentToken=null;clearInterval(pollHandle);show("homeView")}catch(e){toast(e.message)}};
+function startExam(){if(!exam||!exam.questions?.length)return toast("Không nhận được bộ câu hỏi.");$("examStudent").textContent=exam.name;$("examClass").textContent=exam.cls;current=0;endAt=exam.endAt;renderQuestion();show("examView");document.documentElement.requestFullscreen?.().catch(()=>{});timerHandle=setInterval(tick,500);tick()}
+function tick(){const remain=Math.max(0,Math.ceil((endAt-Date.now())/1000));$("timer").textContent=String(Math.floor(remain/60)).padStart(2,"0")+":"+String(remain%60).padStart(2,"0");$("timer").classList.toggle("urgent",remain<=60);if(remain<=0){clearInterval(timerHandle);finishExam("TIME_UP")}}
+function renderQuestion(){const q=exam.questions[current];selected=null;$("nextBtn").disabled=true;$("questionCount").textContent=`CÂU ${current+1} / ${exam.questions.length}`;$("questionText").textContent=q.question;$("answers").innerHTML=q.options.map((v,i)=>`<button class="answer" data-index="${i}"><span class="letter">${"ABCD"[i]}</span>${safe(v)}</button>`).join("");document.querySelectorAll(".answer").forEach(b=>b.onclick=()=>{document.querySelectorAll(".answer").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=Number(b.dataset.index);$("nextBtn").disabled=false});$("progressBar").style.width=(current/exam.questions.length*100)+"%";$("answeredText").textContent=`Đã trả lời ${current} / ${exam.questions.length} câu`}
+$("nextBtn").onclick=async()=>{if(selected===null)return;const q=exam.questions[current];$("nextBtn").disabled=true;try{const r=await jsonp("answer",{token:studentToken,questionId:q.id,answer:selected,index:current});if(r.eliminated){clearInterval(timerHandle);showResult(r.result);return}if(current===exam.questions.length-1){finishExam("SUBMITTED");return}current++;renderQuestion()}catch(e){$("nextBtn").disabled=false;toast(e.message)}};
+async function finishExam(reason){try{const r=await jsonp("finish",{token:studentToken,reason});clearInterval(timerHandle);showResult(r.result)}catch(e){toast(e.message)}}
+function showResult(r){clearInterval(timerHandle);clearInterval(pollHandle);document.exitFullscreen?.().catch?.(()=>{});const score=Number(r.score||0);$("resultScore").textContent=score.toFixed(2);$("resultTitle").textContent=r.reason==="VIOLATION"||r.reason==="WRONG_ANSWER"?"Bài thi đã bị loại":r.reason==="TIME_UP"?"Đã hết thời gian":"Hoàn thành bài thi";$("resultIcon").textContent=score>0?"🏆":"📋";$("resultDetails").innerHTML=[["Học sinh",r.name||exam?.name||$("studentName").value],["Lớp",r.cls||exam?.cls||$("studentClass").value],["Số câu đúng",r.correct??0],["Tổng câu",r.total??exam?.questions?.length??0]].map(a=>`<div class="result-item"><b>${safe(a[0])}</b><br>${safe(a[1])}</div>`).join("");$("resultMessage").textContent=r.message||("Trạng thái: "+(r.reason||"Đã lưu kết quả"));show("resultView")}
+function sendViolation(kind){if(violationSent||!studentToken)return;violationSent=true;clearInterval(timerHandle);jsonp("violation",{token:studentToken,kind}).then(r=>showResult(r.result)).catch(e=>{toast("Không gửi được cảnh báo. Hãy kết nối lại.");violationSent=false})}
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&studentToken&&$("examView").classList.contains("hidden")===false)sendViolation("TAB_HIDDEN")});
+window.addEventListener("blur",()=>{if(studentToken&&!$("examView").classList.contains("hidden")){if(Date.now()-lastVisibility>1200){lastVisibility=Date.now();sendViolation("WINDOW_BLUR")}}});
+document.addEventListener("fullscreenchange",()=>{if(studentToken&&!document.fullscreenElement&&!$("examView").classList.contains("hidden"))sendViolation("FULLSCREEN_EXIT")});
+$("adminOpen").onclick=()=>show("adminLoginView");$("backHome").onclick=()=>show("homeView");
+$("adminLoginForm").onsubmit=async e=>{e.preventDefault();try{const r=await jsonp("adminLogin",{password:$("adminPassword").value});adminToken=r.token;$("adminPassword").value="";show("adminView");await loadAdmin();startAdminRefresh()}catch(err){toast(err.message)}};
+let adminRefresh=null;function startAdminRefresh(){clearInterval(adminRefresh);adminRefresh=setInterval(()=>loadAdmin().catch(()=>{}),4000)}
+$("adminLogout").onclick=()=>{adminToken=null;clearInterval(adminRefresh);show("homeView")};
+$("refreshAdmin").onclick=()=>loadAdmin().catch(e=>toast(e.message));
+async function loadAdmin(){const r=await jsonp("adminDashboard",{token:adminToken});$("sTotal").textContent=r.stats.total;$("sWait").textContent=r.stats.waiting;$("sLive").textContent=r.stats.live;$("sOut").textContent=r.stats.eliminated;
+$("studentsTable").innerHTML=r.sessions.map(s=>`<tr><td><b>${safe(s.name)}</b><br><small>${safe(s.id)}</small></td><td>${safe(s.cls)}</td><td><span class="tag ${s.status==="WAITING"?"wait":s.status==="APPROVED"?"ok":s.status==="ELIMINATED"?"bad":""}">${safe(statusText(s.status))}</span></td><td>${s.answered||0}/${s.total||"-"}</td><td>${s.remaining||"-"}</td><td>${safe(s.reason||"—")}</td><td>${s.status==="WAITING"?`<button class="btn success" onclick="adminAction('approve','${s.id}')">Duyệt</button> <button class="btn danger" onclick="adminAction('reject','${s.id}')">Từ chối</button>`:s.status==="APPROVED"?`<button class="btn danger" onclick="adminAction('eliminate','${s.id}')">Loại</button>`:"—"}</td></tr>`).join("")||'<tr><td colspan="6">Chưa có học sinh đăng ký.</td></tr>';
+$("cfgCount").value=r.settings.questionCount;$("cfgMinutes").value=r.settings.durationMinutes;$("cfgPoint").value=r.settings.pointPerQuestion;$("cfgWrong").value=String(r.settings.eliminateOnWrong);$("cfgViolation").value=String(r.settings.eliminateOnViolation);
+$("resultsTable").innerHTML=r.results.map(x=>`<tr><td>${safe(x.name)}</td><td>${safe(x.cls)}</td><td><b>${Number(x.score).toFixed(2)}</b></td><td>${x.correct}</td><td>${x.total}</td><td>${safe(x.finishedAt)}</td><td>${safe(x.reason)}</td></tr>`).join("")||'<tr><td colspan="7">Chưa có kết quả.</td></tr>'}
+function statusText(s){return ({WAITING:"Chờ duyệt",APPROVED:"Đang thi",FINISHED:"Đã nộp",ELIMINATED:"Đã bị loại",REJECTED:"Từ chối"})[s]||s}
+window.adminAction=async(action,id)=>{if(!confirm("Xác nhận thao tác "+action+" với học sinh này?"))return;try{await jsonp("adminAction",{token:adminToken,action,sessionId:id});await loadAdmin();toast("Đã cập nhật trạng thái")}catch(e){toast(e.message)}};
+document.querySelectorAll(".side-link[data-tab]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".side-link[data-tab]").forEach(x=>x.classList.remove("active"));b.classList.add("active");["monitor","settings","results"].forEach(t=>$(t+"Tab").classList.toggle("hidden",t!==b.dataset.tab));$("adminTitle").textContent=({monitor:"Giám sát phòng thi",settings:"Cấu hình bài thi",results:"Kết quả đã lưu"})[b.dataset.tab]});
+$("saveSettings").onclick=async()=>{try{await jsonp("saveSettings",{token:adminToken,settings:{questionCount:Number($("cfgCount").value),durationMinutes:Number($("cfgMinutes").value),pointPerQuestion:Number($("cfgPoint").value),eliminateOnWrong:$("cfgWrong").value==="true",eliminateOnViolation:$("cfgViolation").value==="true"}});toast("Đã lưu cấu hình");await loadAdmin()}catch(e){toast(e.message)}};
+$("keepDoing").onclick=()=>$("confirmModal").classList.add("hidden");$("confirmSubmit").onclick=()=>{$("confirmModal").classList.add("hidden");finishExam("SUBMITTED")};
+</script>
+</body></html>
