@@ -3,118 +3,571 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#1769e8">
+<meta name="theme-color" content="#0f4c81">
 <title>HỆ THỐNG TN TRƯỜNG THPT LÊ DUẨN - PRO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <style>
-:root{--blue:#1769e8;--blue2:#49a1ff;--navy:#102a56;--cyan:#dff2ff;--ink:#183153;--muted:#6e829f;--line:#e4edf8;--white:#fff;--bg:#f3f8ff;--green:#12a878;--red:#e34d67;--orange:#f59e0b;--shadow:0 18px 50px #1c5db51c}
-*{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;font-family:'Be Vietnam Pro',sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 0%,#dceeff 0,transparent 30%),radial-gradient(circle at 95% 10%,#e4eaff 0,transparent 27%),linear-gradient(145deg,#f7fbff,#edf5ff);min-height:100vh}
-button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}.app{max-width:1250px;margin:auto;padding:22px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(145deg,#fff,#d7eaff);box-shadow:8px 8px 18px #9bbce64d,-6px -6px 15px #fff;display:grid;place-items:center;font-size:25px}.brand b{font-size:18px;letter-spacing:.4px;color:var(--navy)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.6px;font-weight:800}.top-actions{display:flex;gap:9px;align-items:center}.pill{padding:9px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:#58708f}
-.btn{padding:13px 18px;border-radius:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--blue),#459bff);box-shadow:0 9px 20px #1769e83b;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-2px);box-shadow:0 13px 25px #1769e84a}.btn.secondary{background:#fff;color:var(--blue);border:1px solid #cfe2ff;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#d93d5b,#ff7183)}.btn.success{background:linear-gradient(135deg,#079b73,#32c89a)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:24px;align-items:stretch}.panel{background:#ffffffd9;border:1px solid #fff;border-radius:26px;box-shadow:var(--shadow);backdrop-filter:blur(14px);padding:28px;position:relative;overflow:hidden}.hero-main{min-height:460px;display:flex;flex-direction:column;justify-content:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:1.6px;background:#eaf4ff;padding:8px 12px;border-radius:999px;width:max-content}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.12;margin:20px 0 14px;color:var(--navy);letter-spacing:-2px}.hero h1 span{color:var(--blue)}.lead{color:var(--muted);line-height:1.8;font-size:14px;max-width:550px}.feature-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.feature{background:#f5f9ff;border:1px solid #e4efff;padding:10px 12px;border-radius:13px;font-size:11px;font-weight:700;color:#526c8f}.hero-art{min-height:420px;display:grid;place-items:center;background:linear-gradient(145deg,#e7f3ff,#cfe5ff);border-radius:24px;position:relative;overflow:hidden}.orb{position:absolute;border-radius:50%;filter:blur(1px);animation:float 6s ease-in-out infinite}.orb.one{width:220px;height:220px;background:linear-gradient(145deg,#fff,#a8d3ff);top:30px;right:15px;box-shadow:20px 20px 50px #5c9ce455}.orb.two{width:130px;height:130px;background:linear-gradient(145deg,#fff,#b4caff);bottom:35px;left:25px;animation-delay:-2s}.trophy{z-index:1;width:210px;height:240px;border-radius:35px;background:linear-gradient(145deg,#fff,#d9ebff);box-shadow:18px 22px 35px #477ab344,-10px -10px 24px #fff;display:grid;place-items:center;font-size:100px;transform:rotate(-5deg);animation:float 5s ease-in-out infinite}.float-tag{position:absolute;z-index:2;background:#fff;padding:12px 16px;border-radius:15px;box-shadow:var(--shadow);font-weight:800;font-size:12px}.tag-a{top:55px;left:25px}.tag-b{right:20px;bottom:58px}@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-13px) rotate(-2deg)}}
-.form-card{max-width:540px;margin:24px auto}.form-card h2{margin:0 0 6px;color:var(--navy);font-size:25px}.sub{font-size:12px;color:var(--muted);line-height:1.7}.field{margin:17px 0}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:8px;color:#506987}.field input,.field select{width:100%;border:1px solid #dce8f7;background:#f8fbff;border-radius:13px;padding:14px 15px;outline:none;color:var(--ink)}.field input:focus,.field select:focus{border-color:#68a9ff;box-shadow:0 0 0 4px #dcecff}.full{width:100%}.notice{padding:13px 15px;border-radius:13px;background:#eff7ff;color:#537399;font-size:11px;line-height:1.7;margin-top:15px}.status-card{text-align:center;padding:45px 24px}.status-icon{font-size:54px;margin-bottom:10px}.status-card h2{color:var(--navy)}.spinner{width:26px;height:26px;border:3px solid #d9eaff;border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;display:inline-block}@keyframes spin{to{transform:rotate(360deg)}}
-.admin-layout{display:grid;grid-template-columns:235px 1fr;gap:18px}.sidebar{background:linear-gradient(160deg,#123b78,#1769e8);color:#fff;border-radius:23px;padding:22px;min-height:650px;box-shadow:var(--shadow)}.sidebar h3{font-size:15px}.side-link{display:block;width:100%;text-align:left;color:#dceaff;background:transparent;padding:12px;border-radius:12px;margin:7px 0;font-weight:700;font-size:12px}.side-link.active,.side-link:hover{background:#ffffff24;color:#fff}.admin-main{min-width:0}.admin-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.admin-head h2{margin:0;color:var(--navy)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.stat{padding:17px;border-radius:18px;background:#fff;box-shadow:var(--shadow);border:1px solid #fff}.stat small{color:var(--muted);font-weight:700}.stat strong{display:block;font-size:27px;color:var(--navy);margin-top:7px}.table-wrap{overflow:auto;background:#fff;border-radius:18px;box-shadow:var(--shadow);border:1px solid #fff}.table{width:100%;border-collapse:collapse;min-width:720px}.table th,.table td{padding:13px 14px;text-align:left;border-bottom:1px solid #edf2f9;font-size:11px}.table th{background:#f5f9ff;color:#647d9d}.tag{font-size:10px;padding:6px 9px;border-radius:99px;font-weight:800;background:#edf4ff;color:#3675c9}.tag.wait{background:#fff4dc;color:#a56a00}.tag.ok{background:#e2f8ef;color:#07855e}.tag.bad{background:#ffebef;color:#ce3c57}
-.exam-shell{max-width:1050px;margin:auto}.exam-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.student-chip,.timer{background:#fff;border:1px solid #e4eefb;border-radius:15px;padding:11px 15px;box-shadow:0 8px 20px #1b5a9d10;font-size:12px;font-weight:800}.timer{font-size:20px;color:var(--blue);font-variant-numeric:tabular-nums}.timer.urgent{color:var(--red);animation:pulse .8s infinite}@keyframes pulse{50%{opacity:.55}}.progress{height:8px;background:#e1edfc;border-radius:99px;overflow:hidden;margin:15px 0 22px}.progress>div{height:100%;background:linear-gradient(90deg,#1769e8,#55b5ff);width:0;transition:.3s}.question-card{padding:30px;min-height:350px}.q-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-weight:800}.question-card h2{font-size:clamp(19px,3vw,27px);line-height:1.5;color:var(--navy);margin:24px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:13px}.answer{padding:17px;border:1px solid #dce9fa;background:linear-gradient(145deg,#fff,#f5f9ff);border-radius:16px;text-align:left;color:#35516f;font-weight:700;min-height:65px;box-shadow:5px 6px 14px #b9cce522;transition:.15s}.answer:hover{border-color:#77b5ff;transform:translateY(-2px)}.answer.selected{background:#e5f2ff;border:2px solid var(--blue);color:#1458b5}.answer .letter{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:9px;background:#e7f1ff;color:var(--blue);margin-right:9px}.exam-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px}.result{text-align:center;padding:40px 20px}.score{font-size:66px;font-weight:900;color:var(--blue);line-height:1}.result-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:20px}.result-item{background:#f4f8ff;padding:13px 18px;border-radius:13px;font-size:12px}.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:100;background:#17365f;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;max-width:90vw}.modal-bg{position:fixed;inset:0;background:#102a5677;display:grid;place-items:center;z-index:50;padding:18px}.modal{background:#fff;border-radius:22px;padding:25px;max-width:460px;width:100%;box-shadow:0 30px 80px #061a3c66}.modal h3{margin-top:0;color:var(--navy)}.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+:root{
+  --blue:#1769e8;
+  --blue2:#49a1ff;
+  --indigo:#4f46e5;
+  --navy:#0c2348;
+  --cyan:#dff2ff;
+  --ink:#162b4d;
+  --muted:#637996;
+  --line:#e2ecf8;
+  --white:#fff;
+  --bg:#eef5ff;
+  --green:#10b981;
+  --red:#ef4444;
+  --orange:#f59e0b;
+  --shadow:0 20px 50px rgba(18, 63, 135, 0.12);
+  --glow:0 0 25px rgba(23, 105, 232, 0.35);
+}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg);scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Be Vietnam Pro',sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(73,161,255,0.22) 0, transparent 35%),
+    radial-gradient(circle at 90% 15%, rgba(79,70,229,0.16) 0, transparent 35%),
+    radial-gradient(circle at 50% 90%, rgba(16,185,129,0.12) 0, transparent 40%),
+    linear-gradient(145deg,#f6faff,#e8f1ff);
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
 
-/* CẢI TIẾN 1: BẢNG LƯỚI ĐIỀU HƯỚNG CÂU HỎI */
-.q-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:12px;background:#fff;border-radius:16px;border:1px solid #e4eefb}.q-num{width:36px;height:36px;border-radius:10px;border:1px solid #dce9fa;background:#f8fbff;color:var(--navy);font-weight:800;font-size:12px;display:grid;place-items:center;cursor:pointer;transition:.15s}.q-num:hover{border-color:var(--blue)}.q-num.active{border-color:var(--blue);background:var(--blue);color:#fff}.q-num.done{background:#e2f8ef;border-color:#32c89a;color:#07855e}.q-num.done.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+/* Hạt ánh sáng nền chuyển động */
+.bg-particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;background:linear-gradient(135deg,#fff,rgba(73,161,255,0.4));animation:rise 14s infinite ease-in-out}
+.particle:nth-child(1){width:90px;height:90px;left:8%;top:75%;animation-duration:16s}
+.particle:nth-child(2){width:140px;height:140px;left:82%;top:65%;animation-duration:20s;animation-delay:-4s}
+.particle:nth-child(3){width:60px;height:60px;left:45%;top:85%;animation-duration:13s;animation-delay:-7s}
+.particle:nth-child(4){width:110px;height:110px;left:70%;top:12%;animation-duration:18s;animation-delay:-2s}
+@keyframes rise{
+  0%,100%{transform:translateY(0) scale(1);opacity:.5}
+  50%{transform:translateY(-45px) scale(1.08);opacity:.85}
+}
 
-/* CANH BÁO POPUP VI PHẠM */
-.warn-modal{text-align:center}.warn-icon{font-size:48px;margin-bottom:10px}
-@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{min-height:300px}.admin-layout{grid-template-columns:1fr}.sidebar{min-height:auto}.stats{grid-template-columns:repeat(2,1fr)}.side-link{display:inline-block;width:auto}.app{padding:14px}.panel{padding:20px}}
-@media(max-width:560px){.topbar{align-items:flex-start}.brand b{font-size:14px}.top-actions .pill{display:none}.hero h1{letter-spacing:-1px}.answers{grid-template-columns:1fr}.question-card{padding:20px}.exam-top{align-items:stretch;flex-direction:column}.timer{text-align:center}.exam-bottom{flex-wrap:wrap}.exam-bottom .btn{flex:1}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:22px}.config-grid{grid-template-columns:1fr}}
+button,input,select{font:inherit}
+button{cursor:pointer;border:0}
+.hidden{display:none!important}
+.app{max-width:1260px;margin:auto;padding:22px;position:relative;z-index:1}
+
+/* Hiệu ứng chuyển trang mượt */
+.view-enter{animation:fadeSlideUp .45s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes fadeSlideUp{
+  from{opacity:0;transform:translateY(18px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px;
+  background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);
+  padding:12px 20px;border-radius:22px;border:1px solid rgba(255,255,255,0.9);
+  box-shadow:0 10px 30px rgba(23,105,232,0.07);
+}
+.brand{display:flex;align-items:center;gap:13px}
+.logo{
+  width:50px;height:50px;border-radius:16px;
+  background:linear-gradient(135deg,#1769e8,#4f46e5);
+  color:#fff;box-shadow:0 8px 20px rgba(23,105,232,0.35);
+  display:grid;place-items:center;font-size:25px;
+  animation:pulseLogo 3s infinite ease-in-out;
+}
+@keyframes pulseLogo{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.brand b{font-size:18px;letter-spacing:.3px;color:var(--navy);display:block}
+.brand small{display:block;color:var(--blue);font-size:10px;letter-spacing:1.8px;font-weight:800;margin-top:2px}
+.top-actions{display:flex;gap:10px;align-items:center}
+.pill{
+  padding:9px 15px;border-radius:999px;background:#fff;border:1px solid var(--line);
+  font-size:12px;font-weight:700;color:#4a6484;box-shadow:0 4px 12px rgba(0,0,0,0.03);
+}
+
+.btn{
+  padding:13px 20px;border-radius:14px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--indigo));
+  box-shadow:0 10px 22px rgba(23,105,232,0.28);
+  transition:all .22s cubic-bezier(.16,1,.3,1);
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;overflow:hidden;
+}
+.btn::after{
+  content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.28),transparent);
+  transition:.5s;
+}
+.btn:hover::after{left:130%}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(23,105,232,0.38)}
+.btn:active{transform:translateY(0)}
+.btn.secondary{background:#fff;color:var(--blue);border:1px solid #cfe2ff;box-shadow:0 4px 12px rgba(23,105,232,0.08)}
+.btn.secondary:hover{background:#f4f9ff;border-color:#93c5fd}
+.btn.danger{background:linear-gradient(135deg,#e11d48,#fb7185);box-shadow:0 10px 20px rgba(225,29,72,0.25)}
+.btn.success{background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 10px 20px rgba(16,185,129,0.28)}
+.btn.gold{background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#451a03;box-shadow:0 10px 22px rgba(245,158,11,0.35)}
+.btn.sm{padding:8px 13px;font-size:11px;border-radius:10px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:stretch}
+.panel{
+  background:rgba(255,255,255,0.86);
+  border:1px solid rgba(255,255,255,0.95);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-main{min-height:440px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--indigo);font-size:11px;font-weight:900;letter-spacing:1.5px;
+  background:linear-gradient(135deg,#e0e7ff,#dbeafe);
+  padding:8px 14px;border-radius:999px;width:max-content;
+}
+.hero h1{
+  font-size:clamp(34px,5vw,56px);line-height:1.12;margin:20px 0 14px;
+  color:var(--navy);letter-spacing:-1.8px;
+}
+.hero h1 span{
+  background:linear-gradient(135deg,#1769e8,#4f46e5,#06b6d4);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.lead{color:var(--muted);line-height:1.8;font-size:14.5px;max-width:550px}
+.feature-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.feature{
+  background:#fff;border:1px solid #e0ecff;padding:10px 14px;border-radius:14px;
+  font-size:11.5px;font-weight:700;color:#415c80;
+  box-shadow:0 4px 12px rgba(23,105,232,0.05);transition:.2s;
+}
+.feature:hover{transform:translateY(-2px);border-color:#93c5fd}
+
+.hero-art{
+  min-height:420px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#dbeafe,#c7d2fe);
+  border-radius:28px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid #fff;
+}
+.orb{position:absolute;border-radius:50%;filter:blur(1px);animation:float 6s ease-in-out infinite}
+.orb.one{width:230px;height:230px;background:linear-gradient(145deg,#fff,#93c5fd);top:25px;right:15px;box-shadow:20px 20px 50px #5c9ce455}
+.orb.two{width:140px;height:140px;background:linear-gradient(145deg,#fff,#a5b4fc);bottom:30px;left:25px;animation-delay:-2s}
+.trophy{
+  z-index:1;width:215px;height:245px;border-radius:36px;
+  background:linear-gradient(145deg,#fff,#e0f2fe);
+  box-shadow:20px 24px 40px rgba(30,64,175,0.22),-10px -10px 24px #fff;
+  display:grid;place-items:center;font-size:105px;
+  transform:rotate(-5deg);animation:float 5s ease-in-out infinite;
+}
+.float-tag{
+  position:absolute;z-index:2;background:rgba(255,255,255,0.95);
+  padding:12px 16px;border-radius:16px;box-shadow:0 12px 30px rgba(15,23,42,0.12);
+  font-weight:800;font-size:12px;color:var(--navy);border:1px solid #fff;
+}
+.tag-a{top:45px;left:22px;animation:floatTag 4s ease-in-out infinite}
+.tag-b{right:20px;bottom:48px;animation:floatTag 4.5s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-14px) rotate(-1deg)}}
+@keyframes floatTag{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+.form-card{max-width:540px;margin:26px auto}
+.form-card h2{margin:0 0 6px;color:var(--navy);font-size:25px}
+.sub{font-size:12.5px;color:var(--muted);line-height:1.7}
+.field{margin:16px 0}
+.field label{display:block;font-size:11.5px;font-weight:800;margin-bottom:8px;color:#476082;letter-spacing:.4px}
+.field input,.field select{
+  width:100%;border:1.5px solid #dce8f7;background:#f8fbff;border-radius:14px;
+  padding:14px 16px;outline:none;color:var(--ink);transition:.2s;font-weight:600;
+}
+.field input:focus,.field select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(23,105,232,0.12)}
+.full{width:100%}
+.notice{
+  padding:14px 16px;border-radius:14px;background:linear-gradient(135deg,#eff6ff,#eef2ff);
+  border:1px solid #dbeafe;color:#3b5984;font-size:12px;line-height:1.7;margin-top:16px;
+}
+
+/* Phòng chờ hiệu ứng radar */
+.status-card{text-align:center;padding:48px 28px}
+.radar-wrap{position:relative;width:96px;height:96px;margin:0 auto 18px;display:grid;place-items:center}
+.radar-ring{
+  position:absolute;inset:0;border-radius:50%;border:3px solid var(--blue);
+  animation:radar 2s infinite cubic-bezier(0.2,0.8,0.2,1);opacity:0;
+}
+.radar-ring:nth-child(2){animation-delay:1s}
+@keyframes radar{0%{transform:scale(.5);opacity:.8}100%{transform:scale(1.45);opacity:0}}
+.status-icon{
+  font-size:44px;width:74px;height:74px;border-radius:50%;
+  background:linear-gradient(135deg,#dbeafe,#e0e7ff);
+  display:grid;place-items:center;z-index:1;box-shadow:0 10px 25px rgba(23,105,232,0.2);
+}
+
+/* Admin Layout */
+.admin-layout{display:grid;grid-template-columns:250px 1fr;gap:20px}
+.sidebar{
+  background:linear-gradient(165deg,#0f2954,#1758c7,#3730a3);
+  color:#fff;border-radius:26px;padding:24px;min-height:660px;
+  box-shadow:0 20px 45px rgba(15,41,84,0.25);display:flex;flex-direction:column;
+}
+.sidebar h3{font-size:16px;margin:10px 0 4px;letter-spacing:.5px}
+.side-link{
+  display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+  color:#dbeafe;background:transparent;padding:13px 14px;border-radius:14px;
+  margin:5px 0;font-weight:700;font-size:13px;transition:.2s;
+}
+.side-link.active,.side-link:hover{background:rgba(255,255,255,0.18);color:#fff;transform:translateX(3px)}
+.admin-main{min-width:0}
+.admin-head{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-bottom:18px;background:rgba(255,255,255,0.8);padding:18px 22px;border-radius:22px;
+  border:1px solid #fff;box-shadow:0 8px 25px rgba(0,0,0,0.04);
+}
+.admin-head h2{margin:0;color:var(--navy);font-size:21px}
+.admin-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stat{
+  padding:18px 20px;border-radius:20px;background:#fff;box-shadow:var(--shadow);
+  border:1px solid #fff;position:relative;overflow:hidden;transition:.2s;
+}
+.stat:hover{transform:translateY(-3px)}
+.stat small{color:var(--muted);font-weight:700;font-size:12px}
+.stat strong{display:block;font-size:30px;color:var(--navy);margin-top:6px;font-weight:900}
+.stat.highlight{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-color:#fde68a}
+.stat.highlight strong{color:#b45309}
+
+.table-wrap{overflow:auto;background:#fff;border-radius:22px;box-shadow:var(--shadow);border:1px solid #fff}
+.table{width:100%;border-collapse:collapse;min-width:740px}
+.table th,.table td{padding:14px 16px;text-align:left;border-bottom:1px solid #edf2f9;font-size:12px}
+.table th{background:#f4f8ff;color:#526b8c;font-weight:800;letter-spacing:.3px}
+.table tr:hover td{background:#fafcff}
+.tag{font-size:10.5px;padding:6px 11px;border-radius:999px;font-weight:800;background:#edf4ff;color:#2563eb;display:inline-block}
+.tag.wait{background:#fef3c7;color:#b45309;animation:pulseBadge 2s infinite}
+.tag.ok{background:#d1fae5;color:#047857}
+.tag.bad{background:#ffe4e6;color:#be123c}
+@keyframes pulseBadge{0%,100%{opacity:1}50%{opacity:.65}}
+
+/* Exam Screen */
+.exam-shell{max-width:1060px;margin:auto}
+.exam-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.student-chip,.timer{
+  background:#fff;border:1px solid #e2ecf8;border-radius:16px;padding:12px 18px;
+  box-shadow:0 8px 20px rgba(23,105,232,0.08);font-size:13px;font-weight:800;
+}
+.timer{font-size:21px;color:var(--blue);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px}
+.timer.urgent{color:var(--red);background:#fff1f2;border-color:#fecdd3;animation:pulse .8s infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+.progress{height:10px;background:#dce8fa;border-radius:999px;overflow:hidden;margin:14px 0 20px;box-shadow:inset 0 2px 4px rgba(0,0,0,0.05)}
+.progress>div{height:100%;background:linear-gradient(90deg,#1769e8,#4f46e5,#10b981);width:0;transition:width .4s cubic-bezier(.16,1,.3,1);border-radius:999px}
+
+.q-grid{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;padding:14px;
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);
+  border-radius:18px;border:1px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,0.04);
+}
+.q-num{
+  width:38px;height:38px;border-radius:11px;border:1.5px solid #dce9fa;background:#f8fbff;
+  color:var(--navy);font-weight:800;font-size:12.5px;display:grid;place-items:center;
+  cursor:pointer;transition:.18s;
+}
+.q-num:hover{border-color:var(--blue);transform:translateY(-2px)}
+.q-num.active{border-color:var(--blue);background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;box-shadow:0 5px 12px rgba(23,105,232,0.35)}
+.q-num.done{background:#d1fae5;border-color:#34d399;color:#065f46}
+.q-num.done.active{background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;border-color:var(--blue)}
+
+.question-card{padding:32px;min-height:340px;transition:.25s}
+.q-meta{display:flex;justify-content:space-between;align-items:center;color:var(--blue);font-size:11.5px;font-weight:900;letter-spacing:.6px}
+.question-card h2{font-size:clamp(19px,2.8vw,26px);line-height:1.55;color:var(--navy);margin:22px 0 26px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.answer{
+  padding:18px 20px;border:1.5px solid #dce9fa;
+  background:linear-gradient(145deg,#ffffff,#f6faff);
+  border-radius:18px;text-align:left;color:#2c4666;font-weight:700;font-size:14.5px;
+  min-height:68px;box-shadow:0 6px 16px rgba(23,105,232,0.05);
+  transition:all .2s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;
+}
+.answer:hover{border-color:#60a5fa;transform:translateY(-3px);box-shadow:0 12px 24px rgba(23,105,232,0.12)}
+.answer.selected{
+  background:linear-gradient(135deg,#eff6ff,#dbeafe);
+  border:2px solid var(--blue);color:#1e3a8a;
+  box-shadow:0 10px 24px rgba(23,105,232,0.2);transform:translateY(-2px);
+}
+.answer .letter{
+  display:inline-grid;place-items:center;min-width:34px;height:34px;border-radius:11px;
+  background:#e0ecff;color:var(--blue);margin-right:12px;font-weight:900;transition:.2s;
+}
+.answer.selected .letter{background:var(--blue);color:#fff}
+
+.exam-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:10px}
+
+/* Result Card - Thang điểm 10 */
+.result{text-align:center;padding:42px 24px;max-width:580px}
+.score-ring{
+  width:155px;height:155px;border-radius:50%;margin:16px auto;
+  background:linear-gradient(135deg,#eff6ff,#dbeafe);
+  border:6px solid #fff;box-shadow:0 15px 35px rgba(23,105,232,0.25);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  animation:popIn .6s cubic-bezier(.16,1,.3,1);
+}
+@keyframes popIn{0%{transform:scale(.5);opacity:0}80%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+.score{font-size:52px;font-weight:900;background:linear-gradient(135deg,#1769e8,#4f46e5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.score-scale{font-size:12px;font-weight:800;color:var(--muted);margin-top:4px}
+.rank-badge{
+  display:inline-block;padding:8px 18px;border-radius:999px;font-weight:900;font-size:13px;
+  margin-top:8px;background:#dbeafe;color:#1e40af;
+}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
+.result-item{background:#f5f9ff;padding:14px 16px;border-radius:15px;font-size:12.5px;border:1px solid #e2ecf8}
+.result-item b{color:var(--muted);font-size:11px;display:block;margin-bottom:4px;text-transform:uppercase}
+
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:100;
+  background:rgba(15,35,72,0.95);backdrop-filter:blur(10px);color:#fff;
+  padding:13px 22px;border-radius:14px;box-shadow:0 15px 35px rgba(0,0,0,0.25);
+  font-size:13px;font-weight:600;max-width:90vw;animation:fadeSlideUp .25s ease;
+}
+.modal-bg{position:fixed;inset:0;background:rgba(12,35,72,0.65);backdrop-filter:blur(6px);display:grid;place-items:center;z-index:50;padding:18px}
+.modal{background:#fff;border-radius:26px;padding:28px;max-width:460px;width:100%;box-shadow:0 30px 80px rgba(6,26,60,0.45);animation:popIn .3s ease}
+.modal h3{margin-top:0;color:var(--navy);font-size:20px}
+.config-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.warn-modal{text-align:center}
+.warn-icon{font-size:54px;margin-bottom:10px;animation:shake .5s ease}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+@media(max-width:850px){
+  .hero{grid-template-columns:1fr}
+  .hero-art{min-height:280px}
+  .admin-layout{grid-template-columns:1fr}
+  .sidebar{min-height:auto}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .side-link{display:inline-flex;width:auto}
+  .app{padding:14px}
+  .panel{padding:22px}
+}
+@media(max-width:560px){
+  .topbar{align-items:center}
+  .brand b{font-size:14px}
+  .top-actions .pill{display:none}
+  .hero h1{letter-spacing:-1px}
+  .answers{grid-template-columns:1fr}
+  .question-card{padding:20px}
+  .exam-top{align-items:stretch;flex-direction:column}
+  .timer{justify-content:center}
+  .exam-bottom{flex-wrap:wrap}
+  .exam-bottom .btn{flex:1}
+  .stats{gap:10px}
+  .stat{padding:14px}
+  .stat strong{font-size:24px}
+  .config-grid,.result-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+<div class="bg-particles">
+  <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+</div>
+
 <div class="app">
   <header class="topbar">
-    <div class="brand"><div class="logo">🎓</div><div><b>TRƯỜNG THPT LÊ DUẨN - TÂY NINH</b><small>ONLINE KNOWLEDGE CHALLENGE</small></div></div>
-    <div class="top-actions"><span class="pill">🔒 Phòng thi có kiểm soát</span><button class="btn secondary" id="adminOpen">⚙ ADMIN</button></div>
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div><b>TRƯỜNG THPT LÊ DUẨN - TÂY NINH</b><small>ONLINE KNOWLEDGE CHALLENGE</small></div>
+    </div>
+    <div class="top-actions">
+      <span class="pill">🔒 Phòng thi giám sát thông minh</span>
+      <button class="btn secondary" id="adminOpen">⚙ ADMIN</button>
+    </div>
   </header>
 
-  <section id="homeView">
+  <!-- TRANG CHỦ & ĐĂNG KÝ -->
+  <section id="homeView" class="view-enter">
     <div class="hero">
       <div class="panel hero-main">
         <span class="eyebrow">✦ SÂN CHƠI TRI THỨC TRỰC TUYẾN - THẦY THIỆN DESIGN</span>
         <h1>Chinh phục<br><span>đỉnh cao tri thức.</span></h1>
-        <p class="lead">Một đấu trường kiểm tra trực tuyến hiện đại. Đăng ký bằng họ tên và lớp, chờ giáo viên xác nhận để bước vào thử thách.</p>
-        <div class="feature-row"><span class="feature">⏱ Đồng hồ thời gian thực</span><span class="feature">🎯 Câu hỏi ngẫu nhiên</span><span class="feature">🏆 Chấm điểm tự động</span><span class="feature">🛡 Giám sát phòng thi</span></div>
+        <p class="lead">Đấu trường kiểm tra trắc nghiệm trực tuyến chuẩn <b>thang điểm 10</b>. Nhập chính xác họ tên và lớp để vào phòng chờ, sẵn sàng bứt phá ngay khi giáo viên phát lệnh bắt đầu!</p>
+        <div class="feature-row">
+          <span class="feature">⏱ Đồng hồ đếm ngược</span>
+          <span class="feature">📊 Chuẩn thang điểm 10</span>
+          <span class="feature">⚡ Duyệt đồng loạt</span>
+          <span class="feature">🛡 Chống gian lận 2 lớp</span>
+        </div>
       </div>
-      <div class="hero-art"><div class="orb one"></div><div class="orb two"></div><div class="trophy">🏆</div><div class="float-tag tag-a">⭐ Sẵn sàng thử thách?</div><div class="float-tag tag-b">📚 Học tập • Bứt phá</div></div>
+      <div class="hero-art">
+        <div class="orb one"></div><div class="orb two"></div>
+        <div class="trophy">🏆</div>
+        <div class="float-tag tag-a">⭐ Sẵn sàng đạt điểm 10?</div>
+        <div class="float-tag tag-b">📚 Học tập • Bứt phá</div>
+      </div>
     </div>
+
     <div class="panel form-card">
-      <h2>🎮 Tham gia phòng thi</h2><p class="sub">Nhập chính xác thông tin để giáo viên nhận diện và duyệt vào thi.</p>
+      <h2>🎮 Tham gia phòng thi</h2>
+      <p class="sub">Điền đầy đủ thông tin bên dưới để giáo viên nhận diện và duyệt vào thi.</p>
       <form id="joinForm">
         <div class="field"><label>HỌ VÀ TÊN HỌC SINH</label><input id="studentName" maxlength="80" required placeholder="Ví dụ: Nguyễn Văn An"></div>
         <div class="field"><label>LỚP</label><input id="studentClass" maxlength="20" required placeholder="Ví dụ: 10A4"></div>
         <button class="btn full" type="submit">GỬI YÊU CẦU VÀO PHÒNG THI ➜</button>
       </form>
-      <div class="notice">📌 Sau khi gửi yêu cầu, vui lòng giữ trang này mở và chờ giáo viên duyệt. Thời gian làm bài chỉ bắt đầu khi được duyệt.</div>
+      <div class="notice">📌 Sau khi gửi yêu cầu, giữ nguyên màn hình này. Ngay khi giáo viên bấm <b>Duyệt tất cả</b>, bài thi sẽ tự động mở ra đồng loạt!</div>
     </div>
   </section>
 
-  <section id="waitingView" class="panel form-card status-card hidden">
-    <div class="status-icon">🛎️</div><span class="eyebrow">YÊU CẦU ĐÃ GỬI</span><h2>Đang chờ giáo viên xác nhận</h2>
-    <p class="sub" id="waitingInfo"></p><div class="spinner"></div><p class="sub">Giữ nguyên trang này. Đồng hồ chưa bắt đầu tính.</p>
-    <button class="btn secondary" id="cancelWait">Hủy yêu cầu</button>
+  <!-- PHÒNG CHỜ -->
+  <section id="waitingView" class="panel form-card status-card hidden view-enter">
+    <div class="radar-wrap">
+      <div class="radar-ring"></div>
+      <div class="radar-ring"></div>
+      <div class="status-icon">🛎️</div>
+    </div>
+    <span class="eyebrow">ĐÃ VÀO PHÒNG CHỜ</span>
+    <h2 style="margin-top:14px">Đang chờ giáo viên phát lệnh thi</h2>
+    <p class="sub" id="waitingInfo" style="font-weight:700;color:var(--navy);font-size:14px"></p>
+    <p class="sub">Giữ nguyên trang này, không tắt trình duyệt. Đồng hồ chỉ bắt đầu tính khi giáo viên duyệt.</p>
+    <button class="btn secondary" style="margin-top:14px" id="cancelWait">Hủy yêu cầu</button>
   </section>
 
-  <section id="examView" class="hidden exam-shell">
-    <div class="exam-top"><div class="student-chip">👤 <span id="examStudent"></span></div><div class="student-chip">📘 <span id="examClass"></span></div><div class="timer" id="timer">00:00</div></div>
+  <!-- MÀN HÌNH LÀM BÀI THI -->
+  <section id="examView" class="hidden exam-shell view-enter">
+    <div class="exam-top">
+      <div class="student-chip">👤 <span id="examStudent"></span></div>
+      <div class="student-chip">📘 Lớp <span id="examClass"></span></div>
+      <div class="student-chip">🎯 Thang điểm 10</div>
+      <div class="timer" id="timer">⏱ 00:00</div>
+    </div>
     <div class="progress"><div id="progressBar"></div></div>
 
-    <!-- CẢI TIẾN 1: BẢNG LƯỚI TẤT CẢ CÂU HỎI -->
     <div class="q-grid" id="questionGrid"></div>
 
     <div class="panel question-card">
-      <div class="q-meta"><span id="questionCount">CÂU 1 / 20</span><span>⚡ TRI THỨC ARENA</span></div>
+      <div class="q-meta">
+        <span id="questionCount">CÂU 1 / 20</span>
+        <span id="pointPerQBadge">⚡ 0.50 ĐIỂM / CÂU</span>
+      </div>
       <h2 id="questionText">Đang tải câu hỏi...</h2>
       <div class="answers" id="answers"></div>
     </div>
+
     <div class="exam-bottom">
       <button class="btn secondary" id="prevBtn" disabled>❮ CÂU TRƯỚC</button>
-      <span class="sub" id="answeredText">Đã trả lời 0 câu</span>
+      <span class="sub" id="answeredText" style="font-weight:700;color:var(--navy)">Đã trả lời 0 câu</span>
       <button class="btn" id="nextBtn">CÂU TIẾP THEO ➜</button>
       <button class="btn success" id="submitExamBtn" style="margin-left:auto">NỘP BÀI 📝</button>
     </div>
-    <div class="notice">🛡 Lưu ý: Bạn chỉ được cho phép rời màn hình/chuyển tab <b>1 lần cảnh báo</b>. Nếu vi phạm lần thứ 2, bài thi sẽ tự động kết thúc và nộp ngay lập tức!</div>
+    <div class="notice">🛡 Lưu ý: Hệ thống giám sát chuyển tab/rời màn hình. Bạn chỉ có <b>1 lần cảnh báo</b>; vi phạm lần thứ 2 bài thi sẽ tự động kết thúc!</div>
   </section>
 
-  <section id="resultView" class="panel form-card result hidden">
-    <div class="status-icon" id="resultIcon">🏆</div><span class="eyebrow">KẾT QUẢ BÀI THI</span><h2 id="resultTitle">Hoàn thành!</h2>
-    <div class="score" id="resultScore">0</div><p class="sub">ĐIỂM SỐ</p>
-    <div class="result-grid" id="resultDetails"></div><p class="sub" id="resultMessage"></p>
-    <button class="btn secondary" onclick="clearSession(); location.reload();">VỀ TRANG CHỦ</button>
+  <!-- MÀN HÌNH KẾT QUẢ THANG ĐIỂM 10 -->
+  <section id="resultView" class="panel form-card result hidden view-enter">
+    <div class="status-icon" id="resultIcon" style="margin:0 auto 10px">🏆</div>
+    <span class="eyebrow">KẾT QUẢ BÀI THI</span>
+    <h2 id="resultTitle" style="margin:12px 0 4px">Hoàn thành xuất sắc!</h2>
+    <div class="score-ring">
+      <div class="score" id="resultScore">0.00</div>
+      <div class="score-scale">THANG ĐIỂM 10</div>
+    </div>
+    <div class="rank-badge" id="resultRank">Xếp loại: --</div>
+    <div class="result-grid" id="resultDetails"></div>
+    <p class="sub" id="resultMessage"></p>
+    <button class="btn full" style="margin-top:16px" onclick="clearSession(); location.reload();">VỀ TRANG CHỦ</button>
   </section>
 
-  <section id="adminLoginView" class="panel form-card hidden">
-    <h2>🔐 Đăng nhập giáo viên</h2><p class="sub">Khu vực quản trị được bảo vệ bằng mật khẩu ADMIN.</p>
-    <form id="adminLoginForm"><div class="field"><label>MẬT KHẨU ADMIN</label><input type="password" id="adminPassword" required autocomplete="current-password" placeholder="Nhập mật khẩu quản trị"></div><button class="btn full">ĐĂNG NHẬP QUẢN TRỊ</button></form>
-    <button class="btn secondary full" id="backHome" style="margin-top:10px">Quay lại</button>
+  <!-- ĐĂNG NHẬP ADMIN -->
+  <section id="adminLoginView" class="panel form-card hidden view-enter">
+    <h2>🔐 Đăng nhập giáo viên</h2>
+    <p class="sub">Khu vực quản trị điều hành phòng thi trực tuyến.</p>
+    <form id="adminLoginForm">
+      <div class="field"><label>MẬT KHẨU ADMIN</label><input type="password" id="adminPassword" required autocomplete="current-password" placeholder="Nhập mật khẩu quản trị"></div>
+      <button class="btn full">ĐĂNG NHẬP QUẢN TRỊ</button>
+    </form>
+    <button class="btn secondary full" id="backHome" style="margin-top:10px">Quay lại trang chủ</button>
   </section>
 
-  <section id="adminView" class="admin-layout hidden">
-    <aside class="sidebar"><div style="font-size:28px">🎓</div><h3>TRI THỨC ARENA</h3><p style="font-size:10px;color:#c4dcff">BẢNG ĐIỀU KHIỂN GIÁO VIÊN</p>
+  <!-- BẢNG ĐIỀU KHIỂN ADMIN -->
+  <section id="adminView" class="admin-layout hidden view-enter">
+    <aside class="sidebar">
+      <div style="font-size:32px">🎓</div>
+      <h3>TRI THỨC ARENA</h3>
+      <p style="font-size:11px;color:#bfdbfe;margin-bottom:18px">BẢNG ĐIỀU KHIỂN GIÁO VIÊN</p>
       <button class="side-link active" data-tab="monitor">📡 Giám sát phòng thi</button>
       <button class="side-link" data-tab="settings">⚙ Cấu hình bài thi</button>
-      <button class="side-link" data-tab="results">🏆 Kết quả đã lưu</button>
-      <button class="side-link" id="adminLogout">↪ Đăng xuất</button>
+      <button class="side-link" data-tab="results">🏆 Kết quả thang điểm 10</button>
+      <button class="side-link" id="adminLogout" style="margin-top:auto">↪ Đăng xuất</button>
     </aside>
+
     <div class="admin-main">
-      <div class="admin-head"><div><h2 id="adminTitle">Giám sát phòng thi</h2><p class="sub">Theo dõi trạng thái học sinh và xử lý trực tiếp.</p></div><button class="btn secondary" id="refreshAdmin">↻ Làm mới</button></div>
+      <div class="admin-head">
+        <div>
+          <h2 id="adminTitle">Giám sát phòng thi</h2>
+          <p class="sub">Duyệt đồng loạt thí sinh đang chờ hoặc quản lý từng thí sinh trực tiếp.</p>
+        </div>
+        <div class="admin-toolbar">
+          <button class="btn gold" id="approveAllBtn" disabled>⚡ DUYỆT TẤT CẢ (<span id="waitCountBtn">0</span>)</button>
+          <button class="btn secondary" id="refreshAdmin">↻ Làm mới</button>
+        </div>
+      </div>
+
       <div id="monitorTab">
-        <div class="stats"><div class="stat"><small>👥 Tổng yêu cầu</small><strong id="sTotal">0</strong></div><div class="stat"><small>⏳ Chờ duyệt</small><strong id="sWait">0</strong></div><div class="stat"><small>✍ Đang thi</small><strong id="sLive">0</strong></div><div class="stat"><small>🚫 Đã bị loại</small><strong id="sOut">0</strong></div></div>
-        <div class="table-wrap"><table class="table"><thead><tr><th>HỌC SINH</th><th>LỚP</th><th>TRẠNG THÁI</th><th>TIẾN ĐỘ</th><th>THỜI GIAN CÒN</th><th>GHI CHÚ</th><th>THAO TÁC</th></tr></thead><tbody id="studentsTable"><tr><td colspan="6">Chưa có dữ liệu.</td></tr></tbody></table></div>
+        <div class="stats">
+          <div class="stat"><small>👥 Tổng thí sinh</small><strong id="sTotal">0</strong></div>
+          <div class="stat highlight"><small>⏳ Đang chờ duyệt</small><strong id="sWait">0</strong></div>
+          <div class="stat"><small>✍ Đang làm bài</small><strong id="sLive">0</strong></div>
+          <div class="stat"><small>🚫 Đã bị loại</small><strong id="sOut">0</strong></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>HỌC SINH</th>
+                <th>LỚP</th>
+                <th>TRẠNG THÁI</th>
+                <th>TIẾN ĐỘ</th>
+                <th>THỜI GIAN CÒN</th>
+                <th>GHI CHÚ</th>
+                <th>THAO TÁC</th>
+              </tr>
+            </thead>
+            <tbody id="studentsTable"><tr><td colspan="7">Chưa có dữ liệu.</td></tr></tbody>
+          </table>
+        </div>
       </div>
+
       <div id="settingsTab" class="panel hidden">
-        <h3>⚙ Thiết lập phòng thi</h3><p class="sub">Các thiết lập được áp dụng cho học sinh được duyệt tiếp theo.</p>
-        <div class="config-grid"><div class="field"><label>SỐ CÂU HỎI</label><input type="number" min="1" max="100" id="cfgCount"></div><div class="field"><label>THỜI GIAN (PHÚT)</label><input type="number" min="1" max="180" id="cfgMinutes"></div><div class="field"><label>ĐIỂM MỖI CÂU</label><input type="number" min="0.1" max="10" step="0.1" id="cfgPoint"></div><div class="field"><label>CHẾ ĐỘ LOẠI KHI SAI</label><select id="cfgWrong"><option value="true">Có – sai là loại, 0 điểm</option><option value="false">Không – tiếp tục làm bài</option></select></div></div>
-        <div class="field"><label>QUY ĐỊNH RỜI MÀN HÌNH</label><select id="cfgViolation"><option value="true">Có – loại / tự động nộp bài</option><option value="false">Không – chỉ ghi nhận cảnh báo</option></select></div>
-        <button class="btn" id="saveSettings">💾 LƯU CẤU HÌNH</button>
-        <div class="notice">Ngân hàng câu hỏi được quản lý trong tab QUESTIONS của Google Sheets.</div>
+        <h3>⚙ Thiết lập phòng thi (Chuẩn Thang Điểm 10)</h3>
+        <p class="sub">Hệ thống tự động chia đều <b>10 điểm</b> cho tổng số câu hỏi để đảm bảo điểm tối đa luôn là 10.00.</p>
+        <div class="config-grid">
+          <div class="field"><label>SỐ CÂU HỎI</label><input type="number" min="1" max="100" id="cfgCount"></div>
+          <div class="field"><label>THỜI GIAN LÀM BÀI (PHÚT)</label><input type="number" min="1" max="180" id="cfgMinutes"></div>
+          <div class="field"><label>ĐIỂM MỖI CÂU (TỰ ĐỘNG THEO THANG 10)</label><input type="number" step="0.01" id="cfgPoint" readonly style="background:#eef4ff;color:var(--blue);font-weight:800"></div>
+          <div class="field"><label>CHẾ ĐỘ LOẠI KHI SAI</label><select id="cfgWrong"><option value="false">Không – tiếp tục làm bài tính điểm 10</option><option value="true">Có – sai là loại, 0 điểm</option></select></div>
+        </div>
+        <div class="field"><label>QUY ĐỊNH RỜI MÀN HÌNH</label><select id="cfgViolation"><option value="true">Có – cảnh báo lần 1, tự nộp bài lần 2</option><option value="false">Không – chỉ ghi nhận cảnh báo</option></select></div>
+        <button class="btn" id="saveSettings">💾 LƯU CẤU HÌNH THANG ĐIỂM 10</button>
+        <div class="notice">💡 Công thức tính điểm: <b>Điểm số = (Số câu đúng / Tổng số câu hỏi) × 10</b>, làm tròn đến 2 chữ số thập phân.</div>
       </div>
-      <div id="resultsTab" class="hidden"><div class="table-wrap"><table class="table"><thead><tr><th>HỌC SINH</th><th>LỚP</th><th>ĐIỂM</th><th>ĐÚNG</th><th>TỔNG CÂU</th><th>KẾT THÚC</th><th>LÝ DO</th></tr></thead><tbody id="resultsTable"></tbody></table></div></div>
+
+      <div id="resultsTab" class="hidden">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>HỌC SINH</th>
+                <th>LỚP</th>
+                <th>ĐIỂM (THANG 10)</th>
+                <th>XẾP LOẠI</th>
+                <th>SỐ CÂU ĐÚNG</th>
+                <th>TỔNG CÂU</th>
+                <th>THỜI ĐIỂM NỘP</th>
+                <th>GHI CHÚ</th>
+              </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </section>
 </div>
@@ -122,10 +575,26 @@ button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:
 <div id="toast" class="toast hidden"></div>
 
 <!-- MODAL XÁC NHẬN NỘP BÀI -->
-<div id="confirmModal" class="modal-bg hidden"><div class="modal"><h3>⚠ Xác nhận nộp bài</h3><p class="sub">Bạn có chắc chắn muốn kết thúc và nộp bài thi ngay bây giờ?</p><div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px"><button class="btn secondary" id="keepDoing">Tiếp tục làm</button><button class="btn" id="confirmSubmit">Nộp bài ngay</button></div></div></div>
+<div id="confirmModal" class="modal-bg hidden">
+  <div class="modal">
+    <h3>⚠ Xác nhận nộp bài</h3>
+    <p class="sub">Bạn có chắc chắn muốn kết thúc và nộp bài thi ngay bây giờ?</p>
+    <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:22px">
+      <button class="btn secondary" id="keepDoing">Tiếp tục làm</button>
+      <button class="btn success" id="confirmSubmit">Nộp bài ngay</button>
+    </div>
+  </div>
+</div>
 
 <!-- MODAL CẢNH BÁO VI PHẠM (LẦN 1) -->
-<div id="warnModal" class="modal-bg hidden"><div class="modal warn-modal"><div class="warn-icon">⚠️</div><h3 style="color:var(--red)">CẢNH BÁO VI PHẠM!</h3><p class="sub" style="font-size:13px;color:var(--navy)">Hệ thống phát hiện bạn vừa rời khỏi màn hình hoặc chuyển tab.<br><br><b style="color:var(--red)">LƯU Ý QUAN TRỌNG:</b> Đây là lần cảnh báo đầu tiên. Nếu bạn vi phạm <b>lần thứ 2</b>, hệ thống sẽ <b>tự động nộp bài thi ngay lập tức</b>!</p><button class="btn danger full" style="margin-top:15px" id="ackWarn">TÔI ĐÃ HỂU VÀ QUAY LẠI THI</button></div></div>
+<div id="warnModal" class="modal-bg hidden">
+  <div class="modal warn-modal">
+    <div class="warn-icon">⚠️</div>
+    <h3 style="color:var(--red)">CẢNH BÁO VI PHẠM QUY CHẾ!</h3>
+    <p class="sub" style="font-size:13.5px;color:var(--navy)">Hệ thống phát hiện bạn vừa rời khỏi màn hình hoặc chuyển sang tab khác.<br><br><b style="color:var(--red)">LƯU Ý QUAN TRỌNG:</b> Đây là lần cảnh báo duy nhất. Nếu tái phạm <b>lần thứ 2</b>, hệ thống sẽ <b>tự động khóa và nộp bài thi ngay lập tức</b>!</p>
+    <button class="btn danger full" style="margin-top:18px" id="ackWarn">TÔI ĐÃ HIỂU VÀ QUAY LẠI THI</button>
+  </div>
+</div>
 
 <script>
 /* CẤU HÌNH: URL Google Apps Script Web App */
@@ -133,15 +602,26 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxzRkwU78Y1YsJkOE7K7RNW
 const $ = id => document.getElementById(id);
 
 let studentToken=null, adminToken=null, sessionId=null, exam=null, current=0;
-let userAnswers = {}; // Lưu danh sách câu trả lời của học sinh {questionIndex: answerIndex}
+let userAnswers = {};
 let timerHandle=null, pollHandle=null, endAt=0, lastVisibility=0;
-let violationCount = 0; // Đếm số lần vi phạm
+let violationCount = 0;
+let waitingSessionIds = []; // Lưu danh sách ID đang chờ duyệt để duyệt đồng loạt
 
 const screens=["homeView","waitingView","examView","resultView","adminLoginView","adminView"];
-function show(id){screens.forEach(x=>$(x).classList.toggle("hidden",x!==id))}
-function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),3200)}
+function show(id){
+  screens.forEach(x=>{
+    const el = $(x);
+    el.classList.toggle("hidden",x!==id);
+    if(x===id){
+      el.classList.remove("view-enter");
+      void el.offsetWidth;
+      el.classList.add("view-enter");
+    }
+  });
+}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),3400)}
 
-/* CẢI TIẾN 4: HỆ THỐNG ÂM THANH (WEB AUDIO API PHÁT TIẾNG SẮC NÉT KHÔNG CẦN FILE) */
+/* HỆ THỐNG ÂM THANH (WEB AUDIO API) */
 const sound = {
   ctx: null,
   init(){ if(!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); },
@@ -152,20 +632,26 @@ const sound = {
       osc.type = type; osc.frequency.value = freq;
       osc.connect(gain); gain.connect(this.ctx.destination);
       osc.start();
-      gain.gain.setValueAtTime(0.3, this.ctx.currentTime);
+      gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
       osc.stop(this.ctx.currentTime + duration);
     }catch(e){}
   },
-  click(){ this.play(600, 'sine', 0.08); },
-  warn(){ 
-    this.play(300, 'sawtooth', 0.3);
-    setTimeout(()=>this.play(200, 'sawtooth', 0.4), 200);
+  click(){ this.play(620, 'sine', 0.08); },
+  approve(){
+    this.play(523.25, 'triangle', 0.12);
+    setTimeout(()=>this.play(659.25, 'triangle', 0.12), 110);
+    setTimeout(()=>this.play(783.99, 'triangle', 0.25), 220);
+  },
+  warn(){
+    this.play(280, 'sawtooth', 0.3);
+    setTimeout(()=>this.play(190, 'sawtooth', 0.4), 220);
   },
   finish(){
-    this.play(523, 'sine', 0.15);
-    setTimeout(()=>this.play(659, 'sine', 0.15), 150);
-    setTimeout(()=>this.play(783, 'sine', 0.3), 300);
+    this.play(523.25, 'sine', 0.15);
+    setTimeout(()=>this.play(659.25, 'sine', 0.15), 140);
+    setTimeout(()=>this.play(783.99, 'sine', 0.18), 280);
+    setTimeout(()=>this.play(1046.5, 'sine', 0.35), 420);
   }
 };
 
@@ -186,7 +672,23 @@ function jsonp(action,data={}){
 
 function safe(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-/* CẢI TIẾN 1: LƯU VÀ KHÔI PHỤC PHIÊN THI (LOCALSTORAGE) */
+/* TÍNH ĐIỂM THANG ĐIỂM 10 & XẾP LOẠI */
+function calcScore10(correct, total){
+  const c = Number(correct || 0);
+  const t = Number(total || 0);
+  if(t <= 0) return 0;
+  return Number(((c / t) * 10).toFixed(2));
+}
+
+function getRank10(score){
+  if(score >= 9.0) return { label: "Xuất sắc 🌟", color: "#047857", bg: "#d1fae5" };
+  if(score >= 8.0) return { label: "Giỏi 🏆", color: "#1d4ed8", bg: "#dbeafe" };
+  if(score >= 6.5) return { label: "Khá 👍", color: "#0369a1", bg: "#e0f2fe" };
+  if(score >= 5.0) return { label: "Trung bình 📘", color: "#b45309", bg: "#fef3c7" };
+  return { label: "Cần cố gắng 💪", color: "#be123c", bg: "#ffe4e6" };
+}
+
+/* LƯU & KHÔI PHỤC PHIÊN THI */
 function saveSession(){
   if(!studentToken) return;
   const state = { studentToken, sessionId, exam, userAnswers, endAt, current, violationCount };
@@ -213,14 +715,13 @@ function restoreSession(){
         clearSession();
         return false;
       }
-      startExam(true); // Restore exam
+      startExam(true);
       return true;
     }
   }catch(e){ clearSession(); }
   return false;
 }
 
-// Khởi chạy khi tải trang
 window.addEventListener("DOMContentLoaded", ()=>{
   restoreSession();
 });
@@ -233,7 +734,7 @@ $("joinForm").addEventListener("submit",async e=>{
   try{
     const r=await jsonp("register",{name,cls});
     studentToken=r.token;sessionId=r.sessionId;
-    $("waitingInfo").textContent=name+" • Lớp "+cls+" • Mã dự thi "+sessionId;
+    $("waitingInfo").textContent=name+" • Lớp "+cls+" • Mã dự thi: "+sessionId;
     show("waitingView");
     startStudentPoll();
   }catch(err){toast(err.message)}
@@ -248,6 +749,7 @@ function startStudentPoll(){
       if(r.status==="APPROVED"){
         clearInterval(pollHandle);
         exam=r.exam;
+        sound.approve();
         startExam();
       }else if(r.status==="REJECTED"||r.status==="ELIMINATED"||r.status==="FINISHED"){
         clearInterval(pollHandle);
@@ -271,6 +773,9 @@ function startExam(isRestored = false){
   if(!exam||!exam.questions?.length)return toast("Không nhận được bộ câu hỏi.");
   $("examStudent").textContent=exam.name;
   $("examClass").textContent=exam.cls;
+  const ptEach = (10 / exam.questions.length).toFixed(2);
+  $("pointPerQBadge").textContent = `⚡ ${ptEach} ĐIỂM / CÂU`;
+
   if(!isRestored){
     current=0;
     endAt=exam.endAt;
@@ -289,7 +794,7 @@ function startExam(isRestored = false){
 
 function tick(){
   const remain=Math.max(0,Math.ceil((endAt-Date.now())/1000));
-  $("timer").textContent=String(Math.floor(remain/60)).padStart(2,"0")+":"+String(remain%60).padStart(2,"0");
+  $("timer").textContent="⏱ "+String(Math.floor(remain/60)).padStart(2,"0")+":"+String(remain%60).padStart(2,"0");
   $("timer").classList.toggle("urgent",remain<=60);
   if(remain<=0){
     clearInterval(timerHandle);
@@ -297,7 +802,6 @@ function tick(){
   }
 }
 
-/* CẢI TIẾN 2: BẢNG LƯỚI ĐIỀU HƯỚNG CÂU HỎI & CHỌN CÂU TỰ DO */
 function renderGrid(){
   const grid = $("questionGrid");
   grid.innerHTML = exam.questions.map((_, i) => {
@@ -322,7 +826,7 @@ function renderQuestion(){
   const savedAns = userAnswers[current];
   $("answers").innerHTML=q.options.map((v,i)=>`
     <button class="answer ${savedAns===i?'selected':''}" data-index="${i}">
-      <span class="letter">${"ABCD"[i]}</span>${safe(v)}
+      <span class="letter">${"ABCD"[i]}</span><span>${safe(v)}</span>
     </button>
   `).join("");
 
@@ -333,7 +837,6 @@ function renderQuestion(){
     const selectedAns = Number(b.dataset.index);
     userAnswers[current] = selectedAns;
     
-    // Gửi ngầm câu trả lời lên server
     jsonp("answer",{token:studentToken,questionId:q.id,answer:selectedAns,index:current}).catch(()=>{});
     
     saveSession();
@@ -370,16 +873,42 @@ function showResult(r){
   clearInterval(pollHandle);
   clearSession();
   document.exitFullscreen?.().catch?.(()=>{});
-  const score=Number(r.score||0);
-  $("resultScore").textContent=score.toFixed(2);
-  $("resultTitle").textContent=r.reason==="VIOLATION"||r.reason==="WRONG_ANSWER"?"Bài thi đã bị loại":r.reason==="TIME_UP"?"Đã hết thời gian":"Hoàn thành bài thi";
-  $("resultIcon").textContent=score>0?"🏆":"📋";
-  $("resultDetails").innerHTML=[["Học sinh",r.name||exam?.name||$("studentName").value],["Lớp",r.cls||exam?.cls||$("studentClass").value],["Số câu đúng",r.correct??0],["Tổng câu",r.total??exam?.questions?.length??0]].map(a=>`<div class="result-item"><b>${safe(a[0])}</b><br>${safe(a[1])}</div>`).join("");
-  $("resultMessage").textContent=r.message||("Trạng thái: "+(r.reason||"Đã lưu kết quả"));
+
+  const correct = Number(r.correct ?? 0);
+  const total = Number(r.total ?? exam?.questions?.length ?? 0);
+  // Luôn quy đổi chuẩn về thang điểm 10
+  const score10 = total > 0 ? calcScore10(correct, total) : Number(r.score || 0);
+  const rank = getRank10(score10);
+
+  $("resultScore").textContent = score10.toFixed(2);
+  $("resultRank").textContent = "Xếp loại: " + rank.label;
+  $("resultRank").style.background = rank.bg;
+  $("resultRank").style.color = rank.color;
+
+  $("resultTitle").textContent = r.reason==="VIOLATION"||r.reason==="WRONG_ANSWER"
+    ? "Bài thi đã bị dừng"
+    : r.reason==="TIME_UP"
+    ? "Đã hết thời gian làm bài"
+    : "Hoàn thành bài thi!";
+  $("resultIcon").textContent = score10 >= 8 ? "🏆" : score10 >= 5 ? "🎉" : "📋";
+
+  $("resultDetails").innerHTML = [
+    ["Học sinh", r.name || exam?.name || $("studentName").value],
+    ["Lớp", r.cls || exam?.cls || $("studentClass").value],
+    ["Số câu đúng", `${correct} / ${total} câu`],
+    ["Điểm quy đổi", `${score10.toFixed(2)} / 10 điểm`]
+  ].map(a=>`<div class="result-item"><b>${safe(a[0])}</b><span>${safe(a[1])}</span></div>`).join("");
+
+  $("resultMessage").textContent = r.message || ("Trạng thái: " + (r.reason || "Đã lưu kết quả lên hệ thống"));
   show("resultView");
+
+  // Hiệu ứng pháo hoa chúc mừng nếu đạt từ 5.0 điểm trở lên
+  if(score10 >= 5.0 && typeof confetti === "function"){
+    confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+  }
 }
 
-/* CẢI TIẾN 3: GIÁM SÁT VI PHẠM (CHO PHÉP 1 LẦN CẢNH BÁO, LẦN 2 TỰ ĐỘNG NỘP BÀI) */
+/* GIÁM SÁT VI PHẠM (CẢNH BÁO LẦN 1, TỰ NỘP LẦN 2) */
 function handleViolation(kind){
   if(!studentToken || $("examView").classList.contains("hidden")) return;
   
@@ -388,11 +917,9 @@ function handleViolation(kind){
   sound.warn();
 
   if(violationCount === 1){
-    // Lần 1: Cảnh báo + Phát âm thanh
     $("warnModal").classList.remove("hidden");
     jsonp("violation",{token:studentToken,kind: kind + "_WARN_1"}).catch(()=>{});
   } else if(violationCount >= 2){
-    // Lần 2: Loại và Nộp bài tự động ngay lập tức
     $("warnModal").classList.add("hidden");
     finishExam("VIOLATION");
   }
@@ -436,22 +963,114 @@ $("adminLoginForm").onsubmit=async e=>{
 };
 
 let adminRefresh=null;
-function startAdminRefresh(){clearInterval(adminRefresh);adminRefresh=setInterval(()=>loadAdmin().catch(()=>{}),4000)}
+function startAdminRefresh(){clearInterval(adminRefresh);adminRefresh=setInterval(()=>loadAdmin().catch(()=>{}),3500)}
 $("adminLogout").onclick=()=>{adminToken=null;clearInterval(adminRefresh);show("homeView")};
-$("refreshAdmin").onclick=()=>loadAdmin().catch(e=>toast(e.message));
+$("refreshAdmin").onclick=()=>{sound.click();loadAdmin().catch(e=>toast(e.message))};
+
+// Tự động cập nhật điểm mỗi câu theo thang điểm 10 khi nhập số câu hỏi
+$("cfgCount").addEventListener("input", ()=>{
+  const c = Number($("cfgCount").value);
+  $("cfgPoint").value = c > 0 ? (10 / c).toFixed(2) : "0";
+});
 
 async function loadAdmin(){
   const r=await jsonp("adminDashboard",{token:adminToken});
-  $("sTotal").textContent=r.stats.total;$("sWait").textContent=r.stats.waiting;$("sLive").textContent=r.stats.live;$("sOut").textContent=r.stats.eliminated;
-  $("studentsTable").innerHTML=r.sessions.map(s=>`<tr><td><b>${safe(s.name)}</b><br><small>${safe(s.id)}</small></td><td>${safe(s.cls)}</td><td><span class="tag ${s.status==="WAITING"?"wait":s.status==="APPROVED"?"ok":s.status==="ELIMINATED"?"bad":""}">${safe(statusText(s.status))}</span></td><td>${s.answered||0}/${s.total||"-"}</td><td>${s.remaining||"-"}</td><td>${safe(s.reason||"—")}</td><td>${s.status==="WAITING"?`<button class="btn success" onclick="adminAction('approve','${s.id}')">Duyệt</button> <button class="btn danger" onclick="adminAction('reject','${s.id}')">Từ chối</button>`:s.status==="APPROVED"?`<button class="btn danger" onclick="adminAction('eliminate','${s.id}')">Loại</button>`:"—"}</td></tr>`).join("")||'<tr><td colspan="6">Chưa có học sinh đăng ký.</td></tr>';
-  $("cfgCount").value=r.settings.questionCount;$("cfgMinutes").value=r.settings.durationMinutes;$("cfgPoint").value=r.settings.pointPerQuestion;$("cfgWrong").value=String(r.settings.eliminateOnWrong);$("cfgViolation").value=String(r.settings.eliminateOnViolation);
-  $("resultsTable").innerHTML=r.results.map(x=>`<tr><td>${safe(x.name)}</td><td>${safe(x.cls)}</td><td><b>${Number(x.score).toFixed(2)}</b></td><td>${x.correct}</td><td>${x.total}</td><td>${safe(x.finishedAt)}</td><td>${safe(x.reason)}</td></tr>`).join("")||'<tr><td colspan="7">Chưa có kết quả.</td></tr>';
+  $("sTotal").textContent=r.stats.total;
+  $("sWait").textContent=r.stats.waiting;
+  $("sLive").textContent=r.stats.live;
+  $("sOut").textContent=r.stats.eliminated;
+
+  // Cập nhật danh sách ID đang chờ duyệt cho nút "Duyệt tất cả"
+  waitingSessionIds = r.sessions.filter(s => s.status === "WAITING").map(s => s.id);
+  $("waitCountBtn").textContent = waitingSessionIds.length;
+  $("approveAllBtn").disabled = waitingSessionIds.length === 0;
+
+  $("studentsTable").innerHTML=r.sessions.map(s=>`
+    <tr>
+      <td><b>${safe(s.name)}</b><br><small style="color:var(--muted)">${safe(s.id)}</small></td>
+      <td><b>${safe(s.cls)}</b></td>
+      <td><span class="tag ${s.status==="WAITING"?"wait":s.status==="APPROVED"?"ok":s.status==="ELIMINATED"?"bad":""}">${safe(statusText(s.status))}</span></td>
+      <td>${s.answered||0}/${s.total||"-"}</td>
+      <td>${s.remaining||"-"}</td>
+      <td>${safe(s.reason||"—")}</td>
+      <td>${
+        s.status==="WAITING"
+          ? `<button class="btn success sm" onclick="adminAction('approve','${s.id}')">✓ Duyệt</button> <button class="btn danger sm" onclick="adminAction('reject','${s.id}')">✕ Từ chối</button>`
+          : s.status==="APPROVED"
+          ? `<button class="btn danger sm" onclick="adminAction('eliminate','${s.id}')">Loại</button>`
+          : "—"
+      }</td>
+    </tr>
+  `).join("")||'<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--muted)">Chưa có học sinh đăng ký vào phòng thi.</td></tr>';
+
+  const qCount = Number(r.settings.questionCount || 20);
+  $("cfgCount").value = qCount;
+  $("cfgMinutes").value = r.settings.durationMinutes;
+  // Luôn hiển thị điểm mỗi câu chia đều theo thang 10
+  $("cfgPoint").value = qCount > 0 ? (10 / qCount).toFixed(2) : r.settings.pointPerQuestion;
+  $("cfgWrong").value = String(r.settings.eliminateOnWrong);
+  $("cfgViolation").value = String(r.settings.eliminateOnViolation);
+
+  $("resultsTable").innerHTML=r.results.map(x=>{
+    const s10 = Number(x.total) > 0 ? calcScore10(x.correct, x.total) : Number(x.score || 0);
+    const rk = getRank10(s10);
+    return `
+      <tr>
+        <td><b>${safe(x.name)}</b></td>
+        <td>${safe(x.cls)}</td>
+        <td><b style="font-size:14px;color:var(--blue)">${s10.toFixed(2)}</b> / 10</td>
+        <td><span class="tag" style="background:${rk.bg};color:${rk.color}">${rk.label}</span></td>
+        <td>${x.correct}</td>
+        <td>${x.total}</td>
+        <td>${safe(x.finishedAt)}</td>
+        <td>${safe(x.reason)}</td>
+      </tr>
+    `;
+  }).join("")||'<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted)">Chưa có kết quả bài thi nào.</td></tr>';
 }
-function statusText(s){return ({WAITING:"Chờ duyệt",APPROVED:"Đang thi",FINISHED:"Đã nộp",ELIMINATED:"Đã bị loại",REJECTED:"Từ chối"})[s]||s}
+
+function statusText(s){
+  return ({WAITING:"Đang chờ duyệt",APPROVED:"Đang làm bài",FINISHED:"Đã nộp bài",ELIMINATED:"Đã bị loại",REJECTED:"Đã từ chối"})[s]||s;
+}
+
+/* DUYỆT ĐỒNG LOẠT TẤT CẢ HỌC SINH ĐANG CHỜ */
+$("approveAllBtn").onclick = async () => {
+  if(!waitingSessionIds.length) return;
+  sound.click();
+  const count = waitingSessionIds.length;
+  if(!confirm(`Xác nhận DUYỆT ĐỒNG LOẠT tất cả ${count} học sinh đang chờ vào thi ngay bây giờ?`)) return;
+
+  const btn = $("approveAllBtn");
+  btn.disabled = true;
+  btn.innerHTML = `⏳ ĐANG DUYỆT ${count} HỌC SINH...`;
+
+  try {
+    // Thử gọi action batch approveAll nếu backend hỗ trợ, nếu không tự động fallback sang duyệt song song từng em
+    try {
+      await jsonp("adminAction", { token: adminToken, action: "approveAll", sessionIds: waitingSessionIds });
+    } catch (err) {
+      await Promise.all(
+        waitingSessionIds.map(id => jsonp("adminAction", { token: adminToken, action: "approve", sessionId: id }))
+      );
+    }
+    sound.approve();
+    toast(`✅ Đã duyệt đồng loạt thành công ${count} học sinh!`);
+    await loadAdmin();
+  } catch (e) {
+    toast("Có lỗi khi duyệt đồng loạt: " + e.message);
+  } finally {
+    btn.innerHTML = `⚡ DUYỆT TẤT CẢ (<span id="waitCountBtn">0</span>)`;
+    await loadAdmin();
+  }
+};
 
 window.adminAction=async(action,id)=>{
-  if(!confirm("Xác nhận thao tác "+action+" với học sinh này?"))return;
-  try{await jsonp("adminAction",{token:adminToken,action,sessionId:id});await loadAdmin();toast("Đã cập nhật trạng thái")}catch(e){toast(e.message)}
+  if(!confirm("Xác nhận thao tác này với học sinh?"))return;
+  try{
+    await jsonp("adminAction",{token:adminToken,action,sessionId:id});
+    await loadAdmin();
+    toast("Đã cập nhật trạng thái học sinh");
+  }catch(e){toast(e.message)}
 };
 
 document.querySelectorAll(".side-link[data-tab]").forEach(b=>b.onclick=()=>{
@@ -459,14 +1078,25 @@ document.querySelectorAll(".side-link[data-tab]").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".side-link[data-tab]").forEach(x=>x.classList.remove("active"));
   b.classList.add("active");
   ["monitor","settings","results"].forEach(t=>$(t+"Tab").classList.toggle("hidden",t!==b.dataset.tab));
-  $("adminTitle").textContent=({monitor:"Giám sát phòng thi",settings:"Cấu hình bài thi",results:"Kết quả đã lưu"})[b.dataset.tab];
+  $("adminTitle").textContent=({monitor:"Giám sát phòng thi",settings:"Cấu hình bài thi",results:"Kết quả thang điểm 10"})[b.dataset.tab];
 });
 
 $("saveSettings").onclick=async()=>{
   sound.click();
+  const qCount = Number($("cfgCount").value);
+  const pointPerQ = qCount > 0 ? Number((10 / qCount).toFixed(4)) : 0.5;
   try{
-    await jsonp("saveSettings",{token:adminToken,settings:{questionCount:Number($("cfgCount").value),durationMinutes:Number($("cfgMinutes").value),pointPerQuestion:Number($("cfgPoint").value),eliminateOnWrong:$("cfgWrong").value==="true",eliminateOnViolation:$("cfgViolation").value==="true"}});
-    toast("Đã lưu cấu hình");
+    await jsonp("saveSettings",{
+      token:adminToken,
+      settings:{
+        questionCount: qCount,
+        durationMinutes: Number($("cfgMinutes").value),
+        pointPerQuestion: pointPerQ, // Lưu điểm mỗi câu chuẩn thang 10
+        eliminateOnWrong: $("cfgWrong").value==="true",
+        eliminateOnViolation: $("cfgViolation").value==="true"
+      }
+    });
+    toast("✅ Đã lưu cấu hình chuẩn thang điểm 10");
     await loadAdmin();
   }catch(e){toast(e.message)}
 };
